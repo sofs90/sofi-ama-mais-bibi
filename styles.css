@@ -1,14 +1,24 @@
-body, html {
-    height: 100%;
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    background-color: #C1D0D0;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
 }
 
 .container {
     text-align: center;
+    position: relative;
 }
 
 .love-message {
@@ -19,19 +29,148 @@ body, html {
     padding-bottom: 10px;
     margin-bottom: 20px;
     cursor: pointer;
-    transition: color 0.3s ease, border-color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, opacity 0.5s ease;
 }
 
-/* Tornando o texto responsivo em diferentes tamanhos de tela */
+.instruction {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.arrow {
+    font-size: 2rem;
+    margin-left: 10px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Estilo do coração batendo */
+.heart_beating {
+    position: relative;
+    display: none; /* Inicialmente escondido */
+}
+
+.heart {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #FF4B4B;
+    transform: rotate(45deg);
+    animation: beat 2s ease-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Centraliza o coração */
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #FF4B4B;
+    position: absolute;
+}
+
+.heart::before {
+    top: -40px; /* Ajuste vertical */
+    left: 0;    /* Alinhamento horizontal */
+}
+
+.heart::after {
+    top: 0;     /* Ajuste vertical */
+    left: 40px; /* Ajuste horizontal */
+}
+
+.shine {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 25px; /* Ajuste para a nova posição do brilho */
+    top: 10px;  /* Ajuste para a nova posição do brilho */
+    border-radius: 100% 0%;
+    border-left: 2px solid #FFEAA5;
+    transform: rotate(90deg);
+}
+
+.shadow {
+    width: 100px;
+    height: 30px;
+    background: #4A676A;
+    opacity: 0.2;
+    border-radius: 100%;
+    position: absolute;
+    bottom: -20px;
+    right: 2px; /* Ajuste a sombra para alinhar com o coração */
+    animation: beat_shadow 2s ease-out infinite;
+}
+
+@keyframes beat {
+    0%, 40%, 70%, 100% {
+        transform: scale(1) rotate(315deg);
+    }
+    20% {
+        transform: scale(1.4) rotate(315deg);
+    }
+    50%, 80% {
+        transform: scale(1.2) rotate(315deg);
+    }
+}
+
+@keyframes beat_shadow {
+    0%, 40%, 70%, 100% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.4);
+    }
+    50%, 80% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* Responsividade */
 @media (max-width: 768px) {
     .love-message {
-        font-size: 2.5rem; /* Tamanho do texto menor em tablets */
+        font-size: 2.5rem;
+    }
+
+    .instruction {
+        font-size: 1rem;
+    }
+
+    .arrow {
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .love-message {
-        font-size: 2rem;  /* Tamanho do texto ainda menor em celulares */
+        font-size: 2rem;
         padding-bottom: 8px;
+    }
+
+    .instruction {
+        font-size: 0.9rem;
+    }
+
+    .arrow {
+        font-size: 1.6rem;
     }
 }
