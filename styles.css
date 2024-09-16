@@ -19,5 +19,19 @@ body, html {
     padding-bottom: 10px;
     margin-bottom: 20px;
     cursor: pointer;
-    transition: color 0.3s ease, border-color 0.3s ease; /* Transição suave para a cor da borda */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Tornando o texto responsivo em diferentes tamanhos de tela */
+@media (max-width: 768px) {
+    .love-message {
+        font-size: 2.5rem; /* Tamanho do texto menor em tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .love-message {
+        font-size: 2rem;  /* Tamanho do texto ainda menor em celulares */
+        padding-bottom: 8px;
+    }
 }
