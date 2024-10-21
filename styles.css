@@ -97,17 +97,6 @@ body {
     left: 40px; /* Ajuste horizontal */
 }
 
-.shine {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 25px; /* Ajuste para a nova posição do brilho */
-    top: 10px;  /* Ajuste para a nova posição do brilho */
-    border-radius: 100% 0%;
-    border-left: 2px solid #FFEAA5;
-    transform: rotate(90deg);
-}
-
 .shadow {
     width: 100px;
     height: 30px;
