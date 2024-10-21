@@ -5,61 +5,20 @@
 }
 
 html, body {
-    min-height: 100vh; /* Permite que a página tenha no mínimo 100% da altura da tela, mas cresce conforme necessário */
+    height: 100vh;
 }
 
 body {
-    background-color: #D9C6F0; /* Fundo roxo claro */
+    background-color: #C1D0D0;
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    overflow-x: hidden;
+    align-items: center;
 }
 
 .container {
     text-align: center;
-    max-width: 900px;
-    background-color: #FFFFFF;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Adiciona margem superior para garantir que o conteúdo não comece cortado */
-}
-
-.title {
-    font-size: 3rem;
-    color: #333;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.intro-section, .equation-section, .conclusion-section {
-    margin-bottom: 30px;
-}
-
-p {
-    font-size: 1.2rem;
-    color: #444;
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.math-expression {
-    font-size: 1.7rem;
-    color: #333;
-    font-weight: bold;
-    margin: 20px 0;
-    background-color: #F0F0F0;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.description {
-    font-size: 1.1rem;
-    color: #555;
+    position: relative;
 }
 
 .love-message {
@@ -78,50 +37,18 @@ p {
     font-size: 1.2rem;
     color: #666;
     margin-top: 20px;
-    text-align: center;
-}
-
-.instruction span {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .arrow {
     font-size: 2rem;
-    color: #666;
     margin-left: 10px;
     animation: bounce 1s infinite;
 }
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    color: #5D3FD3; /* Cor da palavra em destaque */
-}
-
-.tooltip .tooltip-text {
-    visibility: hidden;
-    width: 200px;
-    background-color: #7B61FF;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%; /* Ajusta a posição acima da palavra */
-    left: 50%;
-    margin-left: -100px; /* Centraliza a tooltip */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 12px;
-}
-
-.tooltip:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
-}
-
 
 @keyframes bounce {
     0%, 100% {
@@ -132,9 +59,10 @@ p {
     }
 }
 
+/* Estilo do coração batendo */
 .heart_beating {
     position: relative;
-    display: none;
+    display: none; /* Inicialmente escondido */
 }
 
 .heart {
@@ -147,7 +75,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 20px auto; /* Centraliza o coração */
 }
 
 .heart::before, .heart::after {
@@ -160,13 +88,36 @@ p {
 }
 
 .heart::before {
-    top: -40px;
-    left: 0;
+    top: -40px; /* Ajuste vertical */
+    left: 0;    /* Alinhamento horizontal */
 }
 
 .heart::after {
-    top: 0;
-    left: 40px;
+    top: 0;     /* Ajuste vertical */
+    left: 40px; /* Ajuste horizontal */
+}
+
+.shine {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 25px; /* Ajuste para a nova posição do brilho */
+    top: 10px;  /* Ajuste para a nova posição do brilho */
+    border-radius: 100% 0%;
+    border-left: 2px solid #FFEAA5;
+    transform: rotate(90deg);
+}
+
+.shadow {
+    width: 100px;
+    height: 30px;
+    background: #4A676A;
+    opacity: 0.2;
+    border-radius: 100%;
+    position: absolute;
+    bottom: -20px;
+    right: 2px; /* Ajuste a sombra para alinhar com o coração */
+    animation: beat_shadow 2s ease-out infinite;
 }
 
 @keyframes beat {
@@ -192,6 +143,7 @@ p {
         transform: scale(1.2);
     }
 }
+
 
 /* Responsividade */
 @media (max-width: 768px) {
